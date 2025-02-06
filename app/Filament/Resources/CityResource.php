@@ -12,6 +12,7 @@ use Filament\Tables;
 use Filament\Tables\Table;
 use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Database\Eloquent\SoftDeletingScope;
+use Symfony\Contracts\Service\Attribute\Required;
 
 class CityResource extends Resource
 {
@@ -23,7 +24,14 @@ class CityResource extends Resource
     {
         return $form
             ->schema([
-                //
+                Forms\Components\FileUpload::make('photo')
+                ->image()
+                ->required(),
+
+                Forms\Components\TextInput::make('name')
+                ->required()
+                ->maxLength(255),
+
             ]);
     }
 
@@ -31,7 +39,10 @@ class CityResource extends Resource
     {
         return $table
             ->columns([
-                //
+                Tables\Columns\TextColumn::make('name')
+                ->searchable(),
+
+                Tables\Columns\ImageColumn::make('photo'),
             ])
             ->filters([
                 //

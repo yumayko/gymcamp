@@ -23,7 +23,23 @@ class FacilityResource extends Resource
     {
         return $form
             ->schema([
-                //
+                Forms\Components\TextInput::make('name')
+                ->required()
+                ->maxLength(255),
+
+                Forms\Components\FileUpload::make('thumbnail')
+                ->image()
+                ->required(),
+
+                Forms\Components\Textarea::make('about')
+                ->required(),
+
+                Forms\Components\Select::make('is_open')
+                ->options([
+                    true => 'Open',
+                    false => 'Maintenance',
+                ])
+                ->required(),
             ]);
     }
 
@@ -31,7 +47,13 @@ class FacilityResource extends Resource
     {
         return $table
             ->columns([
-                //
+                Tables\Columns\TextColumn::make('name')
+                ->searchable(),
+
+                Tables\Columns\ImageColumn::make('thumbnail'),
+
+                Tables\Columns\TextColumn::make('about'),
+                Tables\Columns\BooleanColumn::make('is_open')
             ])
             ->filters([
                 //
