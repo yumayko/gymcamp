@@ -96,7 +96,7 @@ class GymResource extends Resource
                 Tables\Columns\TextColumn::make('name')
                 ->searchable(),
                 Tables\Columns\TextColumn::make('city.name'),
-                Tables\Columns\TextColumn::make('thumbnail'),
+                Tables\Columns\ImageColumn::make('thumbnail'),
                 Tables\Columns\IconColumn::make('is_popular')
                 ->boolean()
                 ->trueColor('success')

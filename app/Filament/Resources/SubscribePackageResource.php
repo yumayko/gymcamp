@@ -23,7 +23,30 @@ class SubscribePackageResource extends Resource
     {
         return $form
             ->schema([
-                //
+                Forms\Components\TextInput::make('name')
+                ->required()
+                ->maxLength(255),
+
+                Forms\Components\FileUpload::make('icon')
+                ->image()
+                ->required(),
+
+                Forms\Components\TextInput::make('price')
+                ->required()
+                ->numeric()
+                ->prefix('IDR'),
+
+                Forms\Components\TextInput::make('duration')
+                ->required()
+                ->numeric()
+                ->prefix('Days'),
+
+                Forms\Components\Repeater::make('subscribeBenefits')
+                ->relationship('subscribeBenefits')
+                ->schema([
+                    Forms\Components\TextInput::make('name')
+                    ->required(),
+                ]),
             ]);
     }
 
@@ -31,7 +54,11 @@ class SubscribePackageResource extends Resource
     {
         return $table
             ->columns([
-                //
+                Tables\Columns\TextColumn::make('name')
+                ->searchable(),
+                Tables\Columns\TextColumn::make('price')
+                ->money('IDR', true),
+                Tables\Columns\ImageColumn::make('icon')
             ])
             ->filters([
                 //
