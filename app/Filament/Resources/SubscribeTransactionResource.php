@@ -11,6 +11,7 @@ use Filament\Resources\Resource;
 use Filament\Forms\Components\Grid;
 use App\Models\SubscribeTransaction;
 use Illuminate\Database\Eloquent\Builder;
+use Filament\Forms\Components\ToggleButtons;
 use Illuminate\Database\Eloquent\SoftDeletingScope;
 use App\Filament\Resources\SubscribeTransactionResource\Pages;
 use App\Filament\Resources\SubscribeTransactionResource\RelationManagers;
@@ -39,10 +40,10 @@ class SubscribeTransactionResource extends Resource
                             ->afterStateUpdated(function ($state, callable $set){
                                 $subscribePackage = SubscribePackage::find($state);
                                 $price = $subscribePackage ? $subscribePackage->price : 0;
-                                $duration = $subscribePackage ? $subscribePackage->diration : 0;
+                                $duration = $subscribePackage ? $subscribePackage->duration : 0;
 
                                 $set('price', $price);
-                                $set('diration', $duration);
+                                $set('duration', $duration);
 
                                 $tax = 0.11;
                                 $totalTaxAmount = $tax * $price;
@@ -95,8 +96,50 @@ class SubscribeTransactionResource extends Resource
                             ->numeric()
                             ->prefix('Days'),
                         ]),
+                    ]),
+
+                    Forms\Components\Wizard\Step::make('Costomer Information')
+                    ->schema([
+                        Grid::make(2)
+                        ->schema([
+                            Forms\Components\TextInput::make('name')
+                            ->required()
+                            ->maxLength(255),
+
+                            Forms\Components\TextInput::make('phone')
+                            ->required()
+                            ->maxLength(255),
+
+                            Forms\Components\TextInput::make('email')
+                            ->required()
+                            ->maxLength(255),
+                        ]),
+                    ]),
+
+                    Forms\Components\Wizard\Step::make('Payment Information')
+                    ->schema([
+                        Forms\Components\TextInput::make('booking_trx_id')
+                        ->required()
+                        ->maxLength(255),
+
+                        ToggleButtons::make('is_paid')
+                        ->label('Apakah Sudah Bayar?')
+                        ->boolean()
+                        ->grouped()
+                        ->icons([
+                            true => 'heroicon-o-pencil',
+                            false => 'heroicon-o-clock',
+                        ])
+                        ->required(),
+
+                        Forms\Components\FileUpload::make('proof')
+                        ->image()
+                        ->required(),
+                        ]),
                     ])
-                ])
+                    ->columnSpan('full')
+                    ->columns(1)
+                    ->skippable(),
             ]);
     }
 
@@ -104,7 +147,15 @@ class SubscribeTransactionResource extends Resource
     {
         return $table
             ->columns([
-                //
+                Tables\Columns\TextColumn::make('name'),
+                Tables\Columns\TextColumn::make('booking_trx_id'),
+                Tables\Columns\IconColumn::make('is_paid')
+                ->boolean()
+                ->trueColor('success')
+                ->falseColor('danger')
+                ->trueIcon('heroicon-o-check-circle')
+                ->falseIcon('heroicon-o-x-circle')
+                ->label('Terverifikasi'),
             ])
             ->filters([
                 //
