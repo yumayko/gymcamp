@@ -5,7 +5,7 @@ namespace App\Repositories;
 use App\Models\SubscribePackage;
 use App\Repositories\Contracts\subscribePackageRepositoryInterface;
 
-class subscribePackageRepository implements subscribePackageRepositoryInterface
+class subscribePackageRepository implements SubscribePackageRepositoryInterface
 {
     public function getAllSubcribePackage()
     {

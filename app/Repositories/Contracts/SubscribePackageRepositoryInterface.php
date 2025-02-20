@@ -2,7 +2,7 @@
 
 namespace App\Repositories\Contracts;
 
-interface subscribePackageRepositoryInterface
+interface SubscribePackageRepositoryInterface
 {
     public function getAllSubcribePackage();
 

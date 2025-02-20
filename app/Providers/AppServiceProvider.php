@@ -9,8 +9,8 @@ use Illuminate\Support\ServiceProvider;
 use App\Repositories\Contracts\GymRepositoryInterface;
 use App\Repositories\Contracts\CityRepositoryInterface;
 use App\Repositories\Contracts\BookingRepositoryInterface;
-use App\Repositories\Contracts\subscribePackageRepositoryInterface;
-use App\Repositories\subscribePackageRepository;
+use App\Repositories\Contracts\SubscribePackageRepositoryInterface;
+use App\Repositories\SubscribePackageRepository;
 
 class AppServiceProvider extends ServiceProvider
 {
@@ -22,7 +22,7 @@ class AppServiceProvider extends ServiceProvider
         $this->app->singleton(CityRepositoryInterface::class, CityRepository::class);
         $this->app->singleton(GymRepositoryInterface::class, GymRepository::class);
         $this->app->singleton(BookingRepositoryInterface::class, BookingRepository::class);
-        $this->app->singleton(subscribePackageRepositoryInterface::class, subscribePackageRepository::class);
+        $this->app->singleton(SubscribePackageRepositoryInterface::class, SubscribePackageRepository::class);
     }
 
     /**
