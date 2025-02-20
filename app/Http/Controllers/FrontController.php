@@ -20,25 +20,26 @@ class FrontController extends Controller
     public function index()
     {
         $data = $this->frontService->getFrontPageData();
-        dd($data);
-        //return view ('front.index', $data);
+        //dd($data);
+        return view ('front.index', $data);
     }
 
     public function pricing ()
     {
         $data = $this->frontService->getSubscriptionsData();
-        dd($data);
-        //return view ('front.pricing', $data);
+        //dd($data);
+        return view ('front.pricing', $data);
     }
 
     public function details(Gym $gym)
     {
         dd($gym);
-        //return view('front.details', compact('gym'));
+        return view('front.details', compact('gym'));
     }
 
     public function city(City $city)
     {
+        dd($city);
         return view('front.city', compact('city'));
     }
 }
