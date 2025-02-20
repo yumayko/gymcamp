@@ -50,7 +50,7 @@
         <div class="flex flex-col items-center w-[282px] gap-4 text-center">
             <img src="{{asset('assets/images/icons/coupon-dollar.svg')}}" class="w-[72px] h-[72px] flex shrink-0" alt="icon">
             <h3 class="font-['ClashDisplay-SemiBold'] text-xl leading-6 tracking-05">Become Membership</h3>
-            <p class="tracking-03">Access to all fitcamp gym <br>
+            <p class="tracking-03">Access to all GymCamp <br>
                 and become part of our exclusive <br>
                 healty community. </p>
         </div>
@@ -299,17 +299,17 @@
                     <a href="#" class="tracking-03">021 543 545 676</a>
                 </li>
                 <li>
-                    <a href="#" class="tracking-03">@fitcamp.bodyfit</a>
+                    <a href="#" class="tracking-03">@gymcamp.bodyfit</a>
                 </li>
                 <li>
-                    <a href="#" class="tracking-03">admin@fitcamp.com</a>
+                    <a href="#" class="tracking-03">admin@gymcamp.com</a>
                 </li>
             </ul>
         </nav>
     </div>
     <hr class="border-white/50 mt-16">
     <div class="flex items-center justify-between mt-[30px]">
-        <p class="font-semibold tracking-03 text-white">© 2024 fitcampcorporation</p>
+        <p class="font-semibold tracking-03 text-white">© 2024 gymcampcorporation</p>
         <ul class="flex items-center justify-end gap-6 text-white">
             <li>
                 <a href="#" class="tracking-03">Term of Services</a>
