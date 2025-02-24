@@ -3,28 +3,7 @@
 @section('content')
 <header class="relative flex flex-col w-full h-[1044px] overflow-hidden -mb-[140px]">
     <img src="{{asset('assets/images/backgrounds/Header Illustration.svg')}}" class="absolute w-full h-full object-cover" alt="backgrounds">
-    <nav class="relative flex items-center justify-between w-full max-w-[1280px] mx-auto px-10 mt-10">
-        <a href="index.html">
-            <img src="{{asset('assets/images/logos/Logo.svg')}}" class="flex shrink-0" alt="logo">
-        </a>
-        <ul class="flex items-center gap-6 justify-end">
-            <li>
-                <a href="#" class="leading-19 tracking-03 text-[#141414]">Subscribe Plan</a>
-            </li>
-            <li>
-                <a href="#" class="leading-19 tracking-03 text-[#141414]">Blog</a>
-            </li>
-            <li>
-                <a href="#" class="leading-19 tracking-03 text-[#141414]">Testimonial</a>
-            </li>
-            <li>
-                <a href="#" class="leading-19 tracking-03 text-[#141414]">About</a>
-            </li>
-            <li>
-                <a href="#" class="leading-19 tracking-0.5 text-white font-semibold rounded-[22px] py-3 px-6 bg-[#606DE5]">My Subscription</a>
-            </li>
-        </ul>
-    </nav>
+    <x-nav/>
     <div id="hero-text" class="relative flex flex-col items-center mx-auto mt-[96px]">
         <div class="flex items-center w-fit rounded-[38px] p-2 pr-6 gap-3 bg-fitcamp-black">
             <img src="{{asset('assets/images/photos/triple-photo.png')}}" class="flex shrink-0 w-[88px] h-10" alt="photos">
@@ -147,6 +126,8 @@
         @empty
         <p>Belum Ada Data Terbaru</p>
         @endforelse
+
+
     </div>
 </section>
 <section id="testi" class="flex flex-col gap-8 mt-[120px]">

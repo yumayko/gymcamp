@@ -27,7 +27,7 @@ class FrontController extends Controller
     public function pricing ()
     {
         $data = $this->frontService->getSubscriptionsData();
-        //dd($data);
+        dd($data);
         return view ('front.pricing', $data);
     }
 
@@ -39,7 +39,7 @@ class FrontController extends Controller
 
     public function city(City $city)
     {
-        dd($city);
+        //dd($city);
         return view('front.city', compact('city'));
     }
 }
