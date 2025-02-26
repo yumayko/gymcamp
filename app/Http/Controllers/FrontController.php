@@ -33,7 +33,7 @@ class FrontController extends Controller
 
     public function details(Gym $gym)
     {
-        dd($gym);
+        //dd($gym);
         return view('front.details', compact('gym'));
     }
 

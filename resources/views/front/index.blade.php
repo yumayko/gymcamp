@@ -99,7 +99,7 @@
 
                     @forelse($itemNewGyms->gymFacility->take(3) as $itemFacility)
                     <div class="flex flex-col gap-3 items-center text-center">
-                        <img src="{{asset('assets/images/icons/Sauna.svg')}}" class="w-10 h-10" alt="icon">
+                        <img src="{{Storage::url($itemFacility->facility->thumbnail)}}" class="w-10 h-10" alt="icon">
                         <div class="flex flex-col gap-1">
                             <p class="font-semibold text-sm leading-16 tracking-05">{{$itemFacility->facility->name}}</p>
                             <p class="opacity-50 text-sm leading-16 tracking-05">{{$itemFacility->facility->about}}</p>
