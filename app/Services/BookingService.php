@@ -5,7 +5,7 @@ namespace App\Services;
 use App\Models\SubscribeTransaction;
 use Illuminate\Support\Facades\DB;
 use App\Repositories\Contracts\BookingRepositoryInterface;
-use App\Repositories\Contracts\subscribePackageRepositoryInterface;
+use App\Repositories\Contracts\SubscribePackageRepositoryInterface;
 
 class BookingService {
     
@@ -13,7 +13,7 @@ class BookingService {
     protected $bookingRepository;
 
     public function __construct(
-        subscribePackageRepositoryInterface $subscribePackageRepository,
+        SubscribePackageRepositoryInterface $subscribePackageRepository,
         BookingRepositoryInterface $bookingRepository,
     ){
         $this->subscribePackageRepository = $subscribePackageRepository;

@@ -13,7 +13,7 @@ use App\Http\Requests\StoreCheckBookingRequest;
 
 class BookingController extends Controller
 {
-    protected $bookingService;
+    private $bookingService;
 
     public function __construct(BookingService $bookingService)
     {

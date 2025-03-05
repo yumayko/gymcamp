@@ -5,11 +5,11 @@ namespace App\Repositories;
 use App\Models\SubscribePackage;
 use App\Repositories\Contracts\subscribePackageRepositoryInterface;
 
-class subscribePackageRepository implements SubscribePackageRepositoryInterface
+class SubscribePackageRepository implements SubscribePackageRepositoryInterface
 {
     public function getAllSubcribePackage()
     {
-        return SubscribePackage::latest()->get();
+        return SubscribePackage::orderBy('id', 'asc')->get();
     }
 
     public function find($id)
