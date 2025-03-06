@@ -3,8 +3,9 @@
 @section('content')
 <div id="background" class="absolute w-full h-[345px] top-0 z-0 bg-[#9FDDFF]"></div>
 <x-nav/>
-<form action="payment.html" id="content" class="relative flex w-full max-w-[1280px] gap-6 mx-auto px-10 mt-[96px]">
+<form action="{{route('front.booking_store', $subscribePackage->id)}}" method="POST" id="content" class="relative flex w-full max-w-[1280px] gap-6 mx-auto px-10 mt-[96px]">
     <div class="flex flex-col gap-6 w-full max-w-[820px] shrink-0">
+        @csrf
         <div id="account" class="flex flex-col w-full rounded-3xl p-8 gap-6 bg-white">
             <div class="flex flex-col gap-2">
                 <p class="font-['ClashDisplay-SemiBold'] text-xl leading-6 tracking-05">Account Details</p>
@@ -13,15 +14,15 @@
             <hr class="border-black opacity-10">
             <label class="group flex items-center">
                 <p class="flex w-[162px] shrink-0 font-['ClashDisplay-SemiBold'] leading-19 tracking-05">Full Name</p>
-                <input type="text" name="" id="" class="outline-none flex w-full rounded-xl px-3 py-4 border border-[#BFBFBF] bg-white font-['Poppins'] text-sm leading-[22px] tracking-03 placeholder:text-[#BFBFBF] transition-all duration-300 group-focus-within:border-black" placeholder="Input full name of yourself">
+                <input type="text" name="name" id="" class="outline-none flex w-full rounded-xl px-3 py-4 border border-[#BFBFBF] bg-white font-['Poppins'] text-sm leading-[22px] tracking-03 placeholder:text-[#BFBFBF] transition-all duration-300 group-focus-within:border-black" placeholder="Input full name of yourself">
             </label>
             <label class="group flex items-center">
                 <p class="flex w-[162px] shrink-0 font-['ClashDisplay-SemiBold'] leading-19 tracking-05">Phone Number</p>
-                <input type="tel" name="" id="" class="outline-none flex w-full rounded-xl px-3 py-4 border border-[#BFBFBF] bg-white font-['Poppins'] text-sm leading-[22px] tracking-03 placeholder:text-[#BFBFBF] transition-all duration-300 group-focus-within:border-black" placeholder="Input valid phone number for validation ">
+                <input type="tel" name="phone" id="" class="outline-none flex w-full rounded-xl px-3 py-4 border border-[#BFBFBF] bg-white font-['Poppins'] text-sm leading-[22px] tracking-03 placeholder:text-[#BFBFBF] transition-all duration-300 group-focus-within:border-black" placeholder="Input valid phone number for validation ">
             </label>
             <label class="group flex items-center">
                 <p class="flex w-[162px] shrink-0 font-['ClashDisplay-SemiBold'] leading-19 tracking-05">Email</p>
-                <input type="email" name="" id="" class="outline-none flex w-full rounded-xl px-3 py-4 border border-[#BFBFBF] bg-white font-['Poppins'] text-sm leading-[22px] tracking-03 placeholder:text-[#BFBFBF] transition-all duration-300 group-focus-within:border-black" placeholder="Input your valid email address">
+                <input type="email" name="email" id="" class="outline-none flex w-full rounded-xl px-3 py-4 border border-[#BFBFBF] bg-white font-['Poppins'] text-sm leading-[22px] tracking-03 placeholder:text-[#BFBFBF] transition-all duration-300 group-focus-within:border-black" placeholder="Input your valid email address">
             </label>
         </div>
         <div id="booking-items" class="flex flex-col w-full rounded-3xl p-8 gap-6 bg-white">

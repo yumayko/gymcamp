@@ -46,6 +46,7 @@ class BookingController extends Controller
     public function payment()
     {
         $data = $this->bookingService->payment();
+        //dd($data);
         return view('booking.payment', $data);
     }
 
