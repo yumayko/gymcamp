@@ -17,7 +17,7 @@ Route::post('/check-booking/details', [BookingController::class, 'checkBookingDe
 Route::get('/booking/payment', [BookingController::class, 'payment'])->name('front.payment');
 Route::post('/booking/payment', [BookingController::class, 'paymentStore'])->name('front.booking_store');
 
-Route::get('/booking/{subscribePackage:id', [BookingController::class, 'booking'])->name('front.booking');
-Route::post('/booking/{subscribePackage:id', [BookingController::class, 'bookingStore'])->name('front.booking_store');
+Route::get('/booking/{subscribePackage:id}', [BookingController::class, 'booking'])->name('front.booking');
+Route::post('/booking/{subscribePackage:id}', [BookingController::class, 'bookingStore'])->name('front.booking_store');
 
 Route::get('/booking/finished/{subscribeTransaction}', [BookingController::class, 'bookingFinished'])->name('front.booking_finished');

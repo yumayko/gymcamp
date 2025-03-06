@@ -20,13 +20,13 @@ class BookingController extends Controller
         $this->bookingService = $bookingService;
     }
 
-    public function booking (SubscribePackage $subscribePackage)
+    public function booking(SubscribePackage $subscribePackage)
     {
         $tax = 0.11;
         $totalTaxAmount = $tax * $subscribePackage->price;
         $grandTotalAmount = $subscribePackage->price + $totalTaxAmount;
 
-        return view ('booking.checkout', compact('subscribePackage', 'totalTaxAmount', 'grandTotalAmount'));
+        return view('booking.checkout', compact('subscribePackage', 'totalTaxAmount', 'grandTotalAmount'));
 
     }
 
