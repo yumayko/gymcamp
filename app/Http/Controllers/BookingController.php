@@ -77,7 +77,7 @@ class BookingController extends Controller
         $validated = $request->validated();
 
         $bookingDetails = $this->bookingService->getBookingDetails($validated);
-
+        //dd($bookingDetails);
         if ($bookingDetails){
             return view ('booking.check_booking_details', compact('bookingDetails'));
         }
